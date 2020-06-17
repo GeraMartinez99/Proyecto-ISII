@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: rgb(85, 82, 82);
+}
+
+.registraE {
+    width: 900px;
+    background: #141414;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.registraE h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.registraE h3 {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.controls {
+    width: 50%;
+    background: #2b2a2a;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    margin-right: 20px;
+    border: 1px solid rgb(35, 7, 136);
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+}
+
+.registraE p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.registraE a {
+    color: white;
+    text-decoration: none;
+}
+
+.registraE a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.registraE .boton {
+    width: 45%;
+    background: rgb(35, 7, 136);
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 20px;
+    font-size: 16px;
+}
+
+.registraE .botonV {
+    width: 45%;
+    background: rgb(206, 13, 13);
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.registraE .numE {
+    width: 15%;
+    background: rgb(35, 7, 136);
+    border: none;
+    padding: 8px;
+    color: white;
+    margin: 8px 0;
+    font-size: 12px;
+}
+form{
+    margin-top: 20px;
+}

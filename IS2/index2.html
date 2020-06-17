@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet">
+    <title>Préstamos iLab</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo"><i class="fab fa-apple"></i> Préstamos iLab</h2>
+            <nav>
+                <a href="registraEquipo.html"> Equipo nuevo</a>
+                <br>
+                
+                <a href="inicio.html"><input class="botonV" type="submit" value="Volver" href="inicio.html"></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="realizar-prestamo">
+            <div class="contenedor">
+                <h3 class="titulo">Nuevo préstamo </h3>
+                <section class="registraE">
+                    <form class="form" name="form" action="registroprestamo.php" method="POST">
+                        <label for="nombre" class="a"> Nombre: </label>
+                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese un nombre" required>
+                        <label for="matricula" class="a"> Matricula: </label>
+                        <input class="controls" type="text" name="matricula" id="matricula" placeholder="Ingrese una matricula" required>
+                        <label for="numMo" class="a"> Número de equipo: </label>
+                        <select class="numE" name="numMo" id="numMo"required>
+
+				</select>
+                        <!---<input class="boton" type="submit" value="Registrar alumno">-->
+                        <input class="boton" type="submit" name="submit" value="Realizar préstamo">
+                    </form>
+                    <form class="form" name="form" action="regresoprestamo.php" method="POST">
+                        <label for="numPre" class="a"> Equipo: </label>
+                
+                        <select class="numE" name="numPre" id="numPre"required>
+
+                        </select>
+                        <input class="boton" type="submit" name="submit" value="Terminar préstamo">
+                    </form>
+                </section>
+                <br>
+                <h3 class="titulo"> Préstamos actuales</h3>
+                <a href="loading.php"><input class="boton" value="Ver"></a>
+
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script>
+            var x;
+            x=$(document);
+            x.ready(inicializadorDeEventos);
+            function inicializadorDeEventos(){
+               obtenerEquiposDisponibles();
+               obtenerEquiposPrestados();
+            }
+            function obtenerEquiposDisponibles(){
+                $("#numMo").html("");
+
+                $.get("obtenerEquiposDisponibles.php",function(data,status){
+                    datos=eval(data);
+                    
+                    for(i in datos){
+                        
+                        $("#numMo").append("<option>"+datos[i]+"</option>");
+                    }
+                    
+                    
+                }
+
+                );
+
+            }
+            function obtenerEquiposPrestados(){
+                $("#numMo").html("");
+
+                $.get("equiposPrestados.php",function(data,status){
+                    datos=eval(data);
+                    
+                    for(i in datos){
+                        
+                        $("#numPre").append("<option>"+datos[i]+"</option>");
+                    }
+                    
+                    
+                }
+
+                );
+
+            }
+        </script>
+</body>
+
+</html>

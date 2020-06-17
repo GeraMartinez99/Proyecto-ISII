@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/registraEquipo.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Registrar equipo</title>
+</head>
+<body id="lo" style="background-color: rgb(85, 82, 82);">
+  <section class="registraE">
+    <form action="#"id="registroE"></form>
+    <h4>Registrar equipo</h4>
+    <br>
+    <h3>Datos Mac</h3>
+    <label for="mac" class="a">* Descripción Mac: </label> 
+    <input class="controls" type="text" name="mac" id="mac" placeholder="Ingrese la descripción Mac">
+    <label for="numE" class="a">* Número: </label> 
+    <input type="number" min="1" max="40" id="numE" name="numE" class="numE" value="1">
+    <br>
+    <label for="estadoM" class="a">* Estado Mac: </label> 
+    <select class="numE" name="estadoM" id="estadoM">
+      <option value="Bueno">Bueno</option>
+      <option value="Regular">Regular</option>
+      <option value="Malo">Malo</option>
+    </select>
+    <br>
+    <br>
+    <h3>Datos teclado</h3>
+    <label for="teclado" class="a">* Descripción teclado: </label> 
+    <input class="controls" type="text" name="teclado" id="teclado" placeholder="Ingrese una descripción para el teclado"> 
+    <br>
+    <label for="estadoT" class="a">* Estado del teclado: </label> 
+    <select class="numE" name="estadoT" id="estadoT">
+      <option value="Bueno">Bueno</option>
+      <option value="Regular">Regular</option>
+      <option value="Malo">Malo</option>
+    </select>
+    <br>
+    <br>
+    <h3>Datos mouse</h3>
+    <label for="teclado" class="a">* Descripción mouse: </label> 
+    <input class="controls" type="text" name="mouse" id="mouse" placeholder="Ingrese una descripción para el mouse">
+    <br>
+    <label for="estadoMo" class="a">* Estado del mouse: </label> 
+    <select class="numE" name="estadoMo" id="estadoMo">
+      <option value="Bueno">Bueno</option>
+      <option value="Regular">Regular</option>
+      <option value="Malo">Malo</option>
+    </select>
+    <br>
+    <br>
+    <div class="alert alert-success" role="alert" style="display: none;" id="alert">
+      Se ha registro el equipo exitosamente
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="cerrarAlert" >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class='alert alert-danger' role='alert' id="alertWarning" style="display: none;">
+
+      El número de equipo ya ha sido registrado!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class='alert alert-danger' role='alert' id="alertCampos" style="display: none;">
+
+      No olvides llenar todos los campos!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <input class="boton" id="registrar"type="submit" value="Registrar equipo">
+    <a href="inicio.html"><input class="botonV" type="submit" value="Volver" href="inicio.html"></a>
+    <form id="eliminarDatos">
+      <div class="modal fade" id="dataDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <input type="hidden" id="id_pais" name="id_pais">
+
+  </section>
+<script>
+     var x;
+    x=$(document);
+    x.ready(inicializadorDeEventos);
+  function inicializadorDeEventos(){
+  
+    $("#registrar").click(insertarEquipos);
+    $(".close").click(cerrarAlert);
+    
+  }
+  function insertarEquipos(){
+    $("#alertWarning").fadeOut();
+    $("#alert").fadeOut();
+    $("#alertCampos").fadeOut();
+    var descripcionMac=$("#mac").val();
+    var descripcionTeclado=$("#teclado").val();
+    var descripcionMouse=$("#mouse").val();
+    var numeroMac=$("#numE").val();
+    var estadoMac=$("#estadoM").val();
+    var estadoTeclado=$("#estadoT").val();
+    var estadoMouse=$("#estadoMo").val();
+    if( descripcionTeclado!="" && descripcionMac!="" && descripcionMouse!=""){
+      var datos="numeroMac="+numeroMac+"&descripcionMac="+descripcionMac+"&estadoMac="+estadoMac+"&descripcionTeclado="+descripcionTeclado+"&estadoTeclado="+estadoTeclado+"&descripcionMouse="+descripcionMouse+"&estadoMouse="+estadoMouse;
+ 
+      $.ajax({
+          type: "POST",
+          url:"insertar.php",
+          data: datos,
+          success: function(msg){
+            
+            if(msg=='0'){
+              $("#alertWarning").text("El número de equipo ya ha sido registrado!");
+              $("#alertWarning").fadeIn(500);
+            }
+            else{
+              
+              setTimeout(function() {
+                  $('#alert').fadeIn('slow');
+              }, 500);
+              $("#numE").val(1);    
+              $("#mac").val('');  
+              $("#teclado").val('');
+              $("#mouse").val('');  
+            }
+
+
+          }
+      });
+    }
+    else{
+      $("#alertCampos").fadeIn();
+    }
+
+}
+function cerrarAlert(){
+  $(".alert").fadeOut();
+}
+  
+</script>
+</body>
+</html>

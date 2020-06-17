@@ -1,0 +1,162 @@
+:root {
+    --azul: rgb(49, 10, 187);
+    --fondo: #141414;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+}
+
+header {
+    padding: 30px 0;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logotipo {
+    margin-left: 160px;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--azul);
+    font-size: 70px;
+}
+
+header nav a {
+    color: #AAA;
+    text-decoration: none;
+    margin-right: 20px;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    font-size: 70px;
+}
+
+header nav a:hover,
+header nav a.activo {
+    color: #FFF;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    font-size: 70px;
+}
+
+
+/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
+
+.realizar-prestamo {
+    font-size: 16px;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0, 0, 0, .50) 100%), url(../img/backdrop.jpg);
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.realizar-prestamo .contenedor {
+    margin: 0 auto;
+    margin-bottom: 6.25em;
+}
+
+.realizar-prestamo .titulo {
+    font-weight: 600;
+    font-size: 3.12em;
+    margin-bottom: 0.4em;
+}
+
+.realizar-prestamos .descripcion {
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+}
+
+.realizar-prestamo .boton {
+    background: var(--azul);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 3.87em;
+    color: #fff;
+    margin-right: 1.25em;
+    /*margin-left: 40.2em;*/
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.12em;
+}
+
+.realizar-prestamo .boton:hover {
+    background: #fff;
+    color: #000;
+}
+
+.realizar-prestamo .boton2 {
+    background: var(--azul);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 3.87em;
+    color: #fff;
+    margin-right: 1.25em;
+    margin-left: 1.2em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.12em;
+}
+
+.realizar-prestamo .boton2:hover {
+    background: #fff;
+    color: #000;
+}
+
+.realizar-prestamo .controls {
+    width: 30%;
+    background: #2b2a2a;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    margin-right: 20px;
+    border: 1px solid rgb(35, 7, 136);
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+}
+
+.realizar-prestamo .numE {
+    width: 10%;
+    background: rgb(35, 7, 136);
+    border: none;
+    padding: 8px;
+    color: white;
+    margin: 8px 0;
+    font-size: 12px;
+}
+
+.contenedor-titulo-controles h3 {
+    color: #fff;
+    font-size: 20px;
+}
+.botonV{
+    width: 45%;
+    background: rgb(206, 13, 13);
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
